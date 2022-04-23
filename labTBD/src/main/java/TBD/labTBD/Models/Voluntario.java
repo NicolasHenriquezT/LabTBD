@@ -11,7 +11,7 @@ public class Voluntario
     private String contrasena;
     private String direccion;
     private String rut;
-    private List<String> estado;
+    private String estado;
 
     //Getters
     public int getId()
@@ -48,7 +48,7 @@ public class Voluntario
         return this.rut;
     }
 
-    public List<String> getEstado()
+    public String getEstado()
     {
         return this.estado;
     }
@@ -88,7 +88,7 @@ public class Voluntario
         this.rut = rut;
     }
 
-    public void setEstado(List<String> estado)
+    public void setEstado(String estado)
     {
         this.estado = estado;
     }
