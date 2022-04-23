@@ -1,7 +1,5 @@
 package TBD.labTBD.Models;
 
-import java.util.*;
-
 public class Voluntario 
 {
     private int id;

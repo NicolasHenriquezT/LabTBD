@@ -1,7 +1,6 @@
 package TBD.labTBD.Repositories;
 
 import java.util.List;
-import TBD.labTBD.*;
 import TBD.labTBD.Models.Voluntario;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +47,7 @@ public class RepositorieVoluntarioIMP implements RepositorieVoluntario
         try(Connection conn = sql2o.open()){
             return (List<Voluntario>) conn.createQuery(sql).executeAndFetch(Voluntario.class);   
         } catch (Exception e) {
-            System.out.println(e.getMessage() + e.getLocalizedMessage()+" no conecté \n");
+            System.out.println(e.getMessage() + e.getLocalizedMessage()+" Error en la conexion \n");
         }
         return null;
     }
@@ -106,7 +105,7 @@ public class RepositorieVoluntarioIMP implements RepositorieVoluntario
             return l.get(0);
             
         } catch (Exception e) {
-            System.out.println(e.getMessage() + e.getLocalizedMessage()+"Error al realizar la petición\n");
+            System.out.println(e.getMessage() + e.getLocalizedMessage()+"Error al realizar la peticion\n");
         }
         return null;
     }
