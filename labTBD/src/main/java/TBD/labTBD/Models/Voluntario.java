@@ -1,15 +1,17 @@
 package TBD.labTBD.Models;
 
+import java.util.*;
+
 public class Voluntario 
 {
     private int id;
     private String nombre;
     private String apellido;
     private String correo;
-    private String contraseña;
+    private String contrasena;
     private String direccion;
     private String rut;
-    private Boolean saludable;
+    private List<String> estado;
 
     //Getters
     public int getId()
@@ -28,7 +30,7 @@ public class Voluntario
 
     public String getContraseña()
     {
-        return this.contraseña;
+        return this.contrasena;
     }
 
     public String getCorreo()
@@ -46,9 +48,9 @@ public class Voluntario
         return this.rut;
     }
 
-    public Boolean getSaludable()
+    public List<String> getEstado()
     {
-        return this.saludable;
+        return this.estado;
     }
 
     //Setters
@@ -71,9 +73,9 @@ public class Voluntario
         this.correo = correo;
     }
 
-    public void setContraseña(String contraseña)
+    public void setContraseña(String contrasena)
     {
-        this.contraseña = contraseña;
+        this.contrasena = contrasena;
     }
 
     public void setDireccion(String direccion)
@@ -86,9 +88,9 @@ public class Voluntario
         this.rut = rut;
     }
 
-    public void setSaludable(Boolean saludable)
+    public void setEstado(List<String> estado)
     {
-        this.saludable = saludable;
+        this.estado = estado;
     }
 }
 

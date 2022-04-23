@@ -19,23 +19,23 @@ public class Instituciones {
         return nombre;
     }
 
-    public String setNombre(String nombre) {
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public List getCoordinadores() {
+    public List<String> getCoordinadores() {
         return coordinadores;
     }
 
-    public List setCoordinadores(List coordinadores) {
+    public void setCoordinadores(List<String> coordinadores) {
         this.coordinadores = coordinadores;
     }
 
-    public List getClavesCoordinadores(List claves_Coordinadores) {
-        return claves_Coordinadores;
+    public List<String> getClavesCoordinadores(List<String> claves_Coordinadores) {
+        return this.claves_Coordinadores;
     }
 
-    public List setClavesCoordinadores(List claves_Coordinadores) {
+    public void setClavesCoordinadores(List<String> claves_Coordinadores) {
         this.claves_Coordinadores = claves_Coordinadores;
     }
 }
