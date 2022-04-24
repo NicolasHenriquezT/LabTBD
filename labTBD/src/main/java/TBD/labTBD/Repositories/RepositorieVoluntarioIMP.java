@@ -13,6 +13,63 @@ public class RepositorieVoluntarioIMP implements RepositorieVoluntario
 {
     @Autowired 
     private Sql2o sql2o;
+    
+    //OBTENER A TODOS LOS VOLUNTARIOS (Metodo GET)
+    @Override
+    public List<Voluntario> getAll() {
+        String sql = "SELECT * FROM voluntario";
+        try(Connection conn = sql2o.open()){
+            return (List<Voluntario>) conn.createQuery(sql).executeAndFetch(Voluntario.class);   
+        } catch (Exception e) {
+            System.out.println(e.getMessage() + e.getLocalizedMessage()+" Error en la conexion \n");
+        }
+        return null;
+    }
+    
+    //ACTUALIZAR A UN VOLUNTARIO (Metodo UPDATE)
+    @Override
+    public void update(Voluntario voluntario) {
+        String sql = "UPDATE voluntario SET nombre="+"'"+
+                    voluntario.getNombre()+"'"+
+                    ", apellido="+"'"+
+                    voluntario.getApellido()+"'"+
+                    ", correo="+"'"+
+                    voluntario.getCorreo()+"'"+
+                    ", contrasena="+"'"+
+                    voluntario.getContraseña()+"'"+
+                    ", direccion="+"'"+
+                    voluntario.getDireccion()+"'"+
+                    ", rut="+"'"+
+                    voluntario.getRut()+"'"+
+                    ", estado="+"'"+
+                    voluntario.getEstado()+"'"+
+                    " WHERE id = "+
+                    voluntario.getId();
+        System.out.println(sql);
+        try(Connection conn = sql2o.open())
+        {
+            
+            conn.createQuery(sql).executeUpdate();
+        }catch(Exception e)
+        {
+            System.out.println(e.getMessage() + e.getLocalizedMessage()+" Error al actualizar datos del voluntario\n");
+        }   
+    }
+    
+    //ELIMINAR A UN VOLUNTARIO (Metodo UPDATE)
+    @Override
+    public void delete(int id) {
+        String sql = "DELETE FROM voluntario WHERE id="+id;
+        try(Connection conn = sql2o.open())
+        {
+            conn.createQuery(sql).executeUpdate();
+        }catch(Exception e)
+        {
+            System.out.println(e.getMessage() + e.getLocalizedMessage()+" error al actualizar\n");
+        }
+        
+    }
+
     //CREAR VOLUNTARIO (Metodo CREATE)
 
     //La verificacion de si existe el voluntario se realiza en el front
@@ -40,61 +97,7 @@ public class RepositorieVoluntarioIMP implements RepositorieVoluntario
         }
         return null;
     }
-    //OBTENER A TODOS LOS VOLUNTARIOS (Metodo GET)
-    @Override
-    public List<Voluntario> getAll() {
-        String sql = "SELECT * FROM voluntario";
-        try(Connection conn = sql2o.open()){
-            return (List<Voluntario>) conn.createQuery(sql).executeAndFetch(Voluntario.class);   
-        } catch (Exception e) {
-            System.out.println(e.getMessage() + e.getLocalizedMessage()+" Error en la conexion \n");
-        }
-        return null;
-    }
 
-    //ACTUALIZAR A UN VOLUNTARIO (Metodo UPDATE)
-    @Override
-    public void update(Voluntario voluntario) {
-        String sql = "UPDATE film SET nombre="+"'"+
-                    voluntario.getNombre()+"'"+
-                    ", apellido="+"'"+
-                    voluntario.getApellido()+"'"+
-                    ", correo="+"'"+
-                    voluntario.getCorreo()+"'"+
-                    ", contrasena="+"'"+
-                    voluntario.getContraseña()+"'"+
-                    ", direccion="+"'"+
-                    voluntario.getDireccion()+"'"+
-                    ", rut="+"'"+
-                    voluntario.getRut()+"'"+
-                    ", estado="+"'"+
-                    voluntario.getEstado()+"'"+
-                    " WHERE id = "+
-                    voluntario.getId();
-        System.out.println(sql);
-        try(Connection conn = sql2o.open())
-        {
-            
-            conn.createQuery(sql).executeUpdate();
-        }catch(Exception e)
-        {
-            System.out.println(e.getMessage() + e.getLocalizedMessage()+" Error al actualizar datos del voluntario\n");
-        }
-        
-    }
-    //ELIMINAR A UN VOLUNTARIO (Metodo UPDATE)
-    @Override
-    public void delete(int id) {
-        String sql = "DELETE FROM voluntario WHERE id="+id;
-        try(Connection conn = sql2o.open())
-        {
-            conn.createQuery(sql).executeUpdate();
-        }catch(Exception e)
-        {
-            System.out.println(e.getMessage() + e.getLocalizedMessage()+" error al actualizar\n");
-        }
-        
-    }
     //OBTENER A UN VOLUNTARIO POR ID (Metodo GET)
     @Override
     public Voluntario getById(int id) {

@@ -14,7 +14,6 @@ public class RepositorieHabilidadIMP implements RepositorieHabilidad{
     @Autowired 
     private Sql2o sql2o;
 
-
     //Obtener todas las habilidades (Metodo GET)
     @Override
     public List<Habilidad> getAll() {
@@ -27,11 +26,10 @@ public class RepositorieHabilidadIMP implements RepositorieHabilidad{
         return null;
     }
 
-
     //Actualizar una habilidad
     @Override
     public void update(Habilidad habilidadUpdate) {
-        String sql = "UPDATE film SET nombre="+"'"+
+        String sql = "UPDATE habilidad SET nombre="+"'"+
                     habilidadUpdate.getNombre()+"'"+
                     ", descripcion="+"'"+
                     habilidadUpdate.getDescripcion()+"'"+
@@ -58,17 +56,17 @@ public class RepositorieHabilidadIMP implements RepositorieHabilidad{
             conn.createQuery(sql).executeUpdate();
         }catch(Exception e)
         {
-            System.out.println(e.getMessage() + e.getLocalizedMessage()+" error al elminar la habilidad\n");
+            System.out.println(e.getMessage() + e.getLocalizedMessage()+" Error al elminar la habilidad\n");
         }
         
     }
 
-    //La verifiacion si existe una habilidad para ser creada se realiza en el front
+    //La verificacion si existe una habilidad para ser creada se realiza en el front
     @Override
     public Habilidad createHabilidad(Habilidad habilidadNew) {
         String sql = "INSERT INTO habilidad (nombre, descripcion) VALUES(:nombre, :descripcion)";
         
-        try (Connection con = sql2o.open()) {
+        try(Connection con = sql2o.open()) {
             int id = (int) con.createQuery(sql,true)
             .addParameter("nombre", habilidadNew.getNombre())
             .addParameter("descripcion", habilidadNew.getDescripcion())
@@ -94,7 +92,7 @@ public class RepositorieHabilidadIMP implements RepositorieHabilidad{
             return l.get(0);
             
         } catch (Exception e) {
-            System.out.println(e.getMessage() + e.getLocalizedMessage()+"Error al realizar la peticion de obtener una habilidad por ID\n");
+            System.out.println(e.getMessage() + e.getLocalizedMessage()+"   Error al realizar la peticion de obtener una habilidad por ID\n");
         }
         return null;
     }
