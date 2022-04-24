@@ -37,7 +37,7 @@ public class ServiceTarea {
     }
 
     //Actualizar datos de una tarea (Metodo UPDATE)
-    @RequestMapping(value="/habilidad/actualizar",method=RequestMethod.PUT)
+    @RequestMapping(value="/tarea/actualizar",method=RequestMethod.PUT)
     public void actualizarTarea(@RequestBody Tarea habilidad)
     {
         repositorio.update(habilidad);

@@ -4,10 +4,9 @@ import TBD.labTBD.Models.Tarea;
 
 //Interfaz que define los metodos del CRUD
 public interface RepositorieTarea{
-    public Integer getId(); // read
     public List<Tarea> getAll(); // read
-    public void update(Tarea tareaModificada);
+    public void update(Tarea tarea);
     public void delete(int id);
-    public Tarea createTarea(Tarea habilidadNew);
+    public Tarea createTarea(Tarea tarea);
     public Tarea getById(int id);
 }
