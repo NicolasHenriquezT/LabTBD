@@ -22,7 +22,7 @@
           <label for="pass-inicio">Ingrese su contraseña</label>
           <input id="pass-inicio" v-model="inicio_sesion.password" type="password"><br>
 
-          <button type="button" class="button-34" @click="InicioSesion">
+          <button type="reset" class="button-34" @click="InicioSesion">
             Iniciar Sesión
           </button>
         </div>
@@ -142,23 +142,38 @@ export default {
       this.registro.id = num + 1
       this.voluntarios.forEach((voluntario) => {
         if (voluntario.correo === this.registro.correo) {
-          flag = 1
           alert('El correo electronico ya se encuentra registrado')
+          flag = 1
         }
       })
-      if (flag === 0) {
-        try {
-          await this.$axios
-            .post('http://localhost:8080/nuevo-voluntario', this.registro)
-            .then(res => res.data)
-            .catch(res => res)
-          alert('Voluntario registrado correctamente')
-        } catch (error) {
-          alert('Error al conectar con el servidor')
-          return error
+      if (flag == 0) 
+      {
+        if (this.registro.nombre != undefined 
+            && this.registro.apellido != undefined 
+            && this.registro.correo != undefined 
+            && this.registro.contraseña != this.registro 
+            && this.registro.direccion != undefined 
+            && this.registro.rut != undefined 
+            && this.registro.estado != undefined)
+        {
+          console.log(this.registro)
+          try {
+            await this.$axios
+              .post('http://localhost:8080/nuevo-voluntario', this.registro)
+              .then(res => res.data)
+              .catch(res => res)
+            alert('Voluntario registrado correctamente')
+          } catch (error) {
+            alert('Error al conectar con el servidor')
+            return error
+          }
+        }else 
+        {
+          alert('Debe rellenar todos los campos para registrar un voluntario')
         }
       }
       this.getVoluntarios()
+      console.log(this.voluntarios)
     }
   }
 }
