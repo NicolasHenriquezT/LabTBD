@@ -65,9 +65,9 @@
           <label for="nombre-registroIns">Nombre de la institucion</label><br>
           <input id="registroIns" v-model="registroIns.nombre" type="text"><br>
           <label for="coordinador-registroIns">Nombre del coordinador</label><br>
-          <input id="registroIns"  v-model="registroIns.coordinadores" type="text"><br> 
+          <input id="registroIns"  v-model="registroIns.coordinador" type="text"><br> 
           <label for="claveCoordinador-registroIns">Clave del coordinador</label><br>
-          <input id="registroIns" v-model="registroIns.claves_coordinadores" type="text"><br>
+          <input id="registroIns" v-model="registroIns.claveCoordinador" type="text"><br>
           <button type="button" class="button-34" @click="RegistrarInstitucion">
             Registrar
           </button>       
@@ -129,6 +129,7 @@ export default {
           this.instituciones.forEach((institucion) => {
             let coordinadores = institucion.coordinadores
             coordinadores = coordinadores.split(',')
+            console.log(coordinadores)
             let contraseñas = institucion.clavesCoordinadores
             contraseñas = contraseñas.split(',')
             for (let i = 0; i < coordinadores.length; i++) {
