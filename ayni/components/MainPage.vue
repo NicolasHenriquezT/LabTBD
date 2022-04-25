@@ -61,6 +61,17 @@
         <div class="title">
           Registrar Institución
         </div>
+        <div class="content">
+          <label for="nombre-registroIns">Nombre de la institucion</label><br>
+          <input id="registroIns" v-model="registroIns.nombre" type="text"><br>
+          <label for="coordinador-registroIns">Nombre del coordinador</label><br>
+          <input id="registroIns"  v-model="registroIns.coordinadores" type="text"><br> 
+          <label for="claveCoordinador-registroIns">Clave del coordinador</label><br>
+          <input id="registroIns" v-model="registroIns.claves_coordinadores" type="text"><br>
+          <button type="button" class="button-34" @click="RegistrarInstitucion">
+            Registrar
+          </button>       
+        </div>
       </li>
     </ul>
   </div>
@@ -76,7 +87,8 @@ export default {
       inicio_sesion: {},
       registro: {},
       voluntarios: [],
-      instituciones: []
+      instituciones: [],
+      registroIns: {}
     }
   },
   methods: {
@@ -173,7 +185,37 @@ export default {
         }
       }
       this.getVoluntarios()
-      console.log(this.voluntarios)
+    },
+    
+    async RegistrarInstitucion() {
+      // Se debe verificar que la institucion a agregar no se encuentre registrada.
+      let flag = 0;
+      let num = 0;
+      this.getInstituciones()
+      num = this.instituciones.length
+      this.registroIns.id = num + 1
+      
+      this.instituciones.forEach((institucion) => {
+        if (institucion.nombre === this.registroIns.nombre) {
+          flag = 1
+          alert('El nombre de la institucion ya se encuentra registrado')
+        }
+      })
+      if (flag === 0) {
+        try {
+          await this.$axios
+            .post('http://localhost:8080/nueva-institucion', this.registroIns)
+            .then(res => res.data)
+            .catch(res => res)
+          alert('Institucion registrada correctamente')
+        } catch (error) {
+          alert('Error al conectar con el servidor')
+          return error
+        }
+      }
+      this.getInstituciones()
+      console.log(this.registroIns)
+      
     }
   }
 }

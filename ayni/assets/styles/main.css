@@ -53,7 +53,7 @@ ul.ul-cards>li{
     --circle-expand: 1rem;
     --flap-height: 1.25rem;
     --flap-offset: 0.5rem;
-    max-width: 50rem;
+    max-width: 70rem;
     margin-top: calc(var(--circle-size) / 2 + var(--circle-expand));
     margin-bottom: var(--flap-offset);
     background-color: var(--bg-color);

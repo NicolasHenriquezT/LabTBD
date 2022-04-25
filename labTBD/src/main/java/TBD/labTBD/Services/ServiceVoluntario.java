@@ -23,7 +23,7 @@ public class ServiceVoluntario
     //CRUD
 
     //Crear un nuevo voluntario (Metodo POST)
-    @RequestMapping(value = "/nuevo-voluntario", method=RequestMethod.POST)
+    @RequestMapping(value = "/nuevo-voluntario", method = RequestMethod.POST)
     public Voluntario createVoluntario(@RequestBody Voluntario voluntario) 
     {
         return repositorieVoluntario.createVoluntario(voluntario);
@@ -36,14 +36,14 @@ public class ServiceVoluntario
     }
 
     //Actualizar datos de un voluntario (Metodo UPDATE)
-    @RequestMapping(value="/voluntario/actualizar",method=RequestMethod.PUT)
+    @RequestMapping(value = "/voluntario/actualizar",method = RequestMethod.PUT)
     public void actualizarVoluntario(@RequestBody Voluntario voluntario)
     {
         repositorieVoluntario.update(voluntario);
     }
 
     //Metodo eliminar voluntario (Metodo DELETE)
-    @DeleteMapping(value="/voluntario/eliminar/{id}")
+    @DeleteMapping(value = "/voluntario/eliminar/{id}")
     public void eliminar(@PathVariable(value = "id") int id)
     {
         repositorieVoluntario.delete(id);

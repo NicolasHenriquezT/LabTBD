@@ -1,5 +1,4 @@
 package TBD.labTBD.Models;
-import java.util.List;
 
 public class Institucion {
     private int id;
