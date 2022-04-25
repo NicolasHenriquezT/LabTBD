@@ -65,7 +65,7 @@ public class RepositorieTareaIMP implements RepositorieTarea{
 
     @Override
     public Tarea createTarea(Tarea tarea) {
-        String sql = "INSERT INTO tarea (nombre, descripcion, estado, fecha_inicio, ubicacion) VALUES(:nombre, :descripcion, :estado, :fecha_inicio, :ubicacion)";
+        String sql = "INSERT INTO tarea (nombre, descripcion, estado, fecha_inicio, ubicacion, listaHabilidades) VALUES(:nombre, :descripcion, :estado, :fecha_inicio, :ubicacion, :listaHabilidades)";
         
         try (Connection con = sql2o.open()) {
             int id = (int) con.createQuery(sql,true)
@@ -74,6 +74,7 @@ public class RepositorieTareaIMP implements RepositorieTarea{
             .addParameter("estado", tarea.getEstado())
             .addParameter("fecha_inicio", tarea.getFechaInicio())
             .addParameter("ubicacion", tarea.getUbicacion())
+            .addParameter("listaHabilidades",tarea.getListaHabilidades())
             .executeUpdate().getKey();
 
             tarea.setId(id);

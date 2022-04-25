@@ -1,14 +1,14 @@
 package TBD.labTBD.Models;
 
 import java.sql.Timestamp;
-import java.util.List;
+
 
 public class Tarea {
     int id;
     Timestamp fechaInicio;
     String estado, nombre, descripcion;
     String ubicacion;
-    List<String> listaHabilidades;
+    String listaHabilidades;
 
     public int getId(){
         return id;
@@ -48,10 +48,10 @@ public class Tarea {
     public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
     }
-    public List<String> getListaHabilidades() {
+    public String getListaHabilidades() {
         return listaHabilidades;
     }
-    public void setListaHabilidades(List<String> listaHabilidades) {
+    public void setListaHabilidades(String listaHabilidades) {
         this.listaHabilidades = listaHabilidades;
     }
     
