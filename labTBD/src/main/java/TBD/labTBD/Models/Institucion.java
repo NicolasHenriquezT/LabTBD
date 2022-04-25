@@ -4,8 +4,8 @@ import java.util.List;
 public class Institucion {
     private int id;
     private String nombre;
-    private List<String> coordinadores;
-    private List<String> claves_Coordinadores;
+    private String coordinadores;
+    private String claves_Coordinadores;
 
     //Getters
     public int getId() {
@@ -16,11 +16,11 @@ public class Institucion {
         return nombre;
     }
 
-    public List<String> getCoordinadores() {
+    public String getCoordinadores() {
         return coordinadores;
     }
 
-    public List<String> getClavesCoordinadores() {
+    public String getClavesCoordinadores() {
         return this.claves_Coordinadores;
     }
 
@@ -33,11 +33,11 @@ public class Institucion {
         this.nombre = nombre;
     }
 
-    public void setCoordinadores(List<String> coordinadores) {
+    public void setCoordinadores(String coordinadores) {
         this.coordinadores = coordinadores;
     }
 
-    public void setClavesCoordinadores(List<String> claves_Coordinadores) {
+    public void setClavesCoordinadores(String claves_Coordinadores) {
         this.claves_Coordinadores = claves_Coordinadores;
     }
 

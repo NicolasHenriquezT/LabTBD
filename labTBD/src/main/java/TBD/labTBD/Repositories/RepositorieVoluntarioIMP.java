@@ -75,10 +75,11 @@ public class RepositorieVoluntarioIMP implements RepositorieVoluntario
     //La verificacion de si existe el voluntario se realiza en el front
     @Override
     public Voluntario createVoluntario(Voluntario voluntario) {
-        String sql = "INSERT INTO voluntario (nombre, apellido, correo,contrasena,direccion,rut,estado) VALUES(:nombre, :apellido, :correo,:contrasena,:direccion,:rut,:estado)";
+        String sql = "INSERT INTO voluntario (id, nombre, apellido, correo,contrasena,direccion,rut,estado) VALUES(:id, :nombre, :apellido, :correo,:contrasena,:direccion,:rut,:estado)";
         
         try (Connection con = sql2o.open()) {
             int id = (int) con.createQuery(sql,true)
+            .addParameter("id", voluntario.getId())
             .addParameter("nombre", voluntario.getNombre())
             .addParameter("apellido", voluntario.getApellido())
             .addParameter("correo", voluntario.getCorreo())
@@ -88,7 +89,7 @@ public class RepositorieVoluntarioIMP implements RepositorieVoluntario
             .addParameter("estado", voluntario.getEstado())
             .executeUpdate().getKey();
 
-            voluntario.setId(id);
+            voluntario.setId(id);    
             return voluntario;
         
         }

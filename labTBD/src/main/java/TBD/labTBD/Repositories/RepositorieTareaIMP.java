@@ -3,12 +3,12 @@ package TBD.labTBD.Repositories;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Repository;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
 import TBD.labTBD.Models.Tarea;
-
+@Repository
 public class RepositorieTareaIMP implements RepositorieTarea{
     @Autowired 
     private Sql2o sql2o;
