@@ -141,7 +141,6 @@ body {
   align-items: center;
   font-family: "Monoton", Helvetica, sans-serif;
   background: #b36646;
-  letter-spacing: 5px;
 }
 
 h1 {
@@ -197,7 +196,15 @@ h1 {
 
 .content{
   display: grid;
-  grid-auto-rows: min-content;
-  grid-template-columns: 50% 50%;
-  row-gap: 2rem;
+  grid-auto-rows: 35px;
+  grid-template-columns: 35% 65%;
+  gap: 2rem 1rem;
+}
+
+.content input {
+  width: 90%;
+}
+
+.ul-cards .title {
+  letter-spacing: 3px;
 }
