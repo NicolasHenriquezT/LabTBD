@@ -18,14 +18,13 @@
         </div>
         <div class="content">
           <label for="nombre-inicio">Ingrese su nombre</label>
-          <input id="nombre-inicio" v-model="inicio_sesion.name" type="text"><br>
+          <input id="nombre-inicio" v-model="inicio_sesion.name" type="text">
           <label for="pass-inicio">Ingrese su contraseña</label>
-          <input id="pass-inicio" v-model="inicio_sesion.password" type="password"><br>
-
-          <button type="reset" class="button-34" @click="InicioSesion">
-            Iniciar Sesión
-          </button>
+          <input id="pass-inicio" v-model="inicio_sesion.password" type="password">
         </div>
+        <button type="reset" class="button-34" @click="InicioSesion">
+            Iniciar Sesión
+        </button>
       </li>
       <li li style="--accent-color: #FFA44B">
         <div class="icon">
@@ -36,23 +35,23 @@
         </div>
         <div class="content">
           <label for="nombre-registro">Ingrese su nombre</label>
-          <input id="registro" v-model="registro.nombre" type="text"><br>
+          <input id="nombre-registro" v-model="registro.nombre" type="text">
           <label for="apellido-registro">Ingrese su apellido</label>
-          <input id="registro" v-model="registro.apellido" type="text"><br>
+          <input id="apellido-registro" v-model="registro.apellido" type="text">
           <label for="correo-registro">Ingrese su correo</label>
-          <input id="registro" v-model="registro.correo" type="email"><br>
+          <input id="correo-registro" v-model="registro.correo" type="email">
           <label for="pass-registro">Ingrese su contraseña</label>
-          <input id="registro" v-model="registro.contraseña" type="password"><br>
+          <input id="pass-registro" v-model="registro.contraseña" type="password">
           <label for="direccion-registro">Ingrese su direccion</label>
-          <input id="registro" v-model="registro.direccion" type="text"><br>
+          <input id="direccion-registro" v-model="registro.direccion" type="text">
           <label for="rut-registro">Ingrese su RUT</label>
-          <input id="registro" v-model="registro.rut" type="text"><br>
-          <label for="rut-registro">Ingrese su estado</label>
-          <input id="registro" v-model="registro.estado" type="text"><br>
-          <button type="button" class="button-34" @click="RegistrarVoluntario">
-            Registrar
-          </button>
+          <input id="rut-registro" v-model="registro.rut" type="text">
+          <label for="estado-registro">Ingrese su estado</label>
+          <input id="estado-registro" v-model="registro.estado" type="text">
         </div>
+        <button type="button" class="button-34" @click="RegistrarVoluntario">
+            Registrar
+        </button>
       </li>
       <li style="--accent-color: #EF6968">
         <div class="icon">
@@ -62,16 +61,16 @@
           Registrar Institución
         </div>
         <div class="content">
-          <label for="nombre-registroIns">Nombre de la institucion</label><br>
-          <input id="registroIns" v-model="registroIns.nombre" type="text"><br>
-          <label for="coordinador-registroIns">Nombre del coordinador</label><br>
-          <input id="registroIns"  v-model="registroIns.coordinador" type="text"><br> 
-          <label for="claveCoordinador-registroIns">Clave del coordinador</label><br>
-          <input id="registroIns" v-model="registroIns.claveCoordinador" type="text"><br>
-          <button type="button" class="button-34" @click="RegistrarInstitucion">
-            Registrar
-          </button>       
+          <label for="nombre-registroIns">Nombre de la institucion</label>
+          <input id="registroIns" v-model="registroIns.nombre" type="text">
+          <label for="coordinador-registroIns">Nombre del coordinador</label>
+          <input id="registroIns"  v-model="registroIns.coordinador" type="text"> 
+          <label for="claveCoordinador-registroIns">Clave del coordinador</label>
+          <input id="registroIns" v-model="registroIns.claveCoordinador" type="text">       
         </div>
+        <button type="button" class="button-34" @click="RegistrarInstitucion">
+            Registrar
+        </button>
       </li>
     </ul>
   </div>
