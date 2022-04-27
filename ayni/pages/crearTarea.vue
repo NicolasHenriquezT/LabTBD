@@ -66,7 +66,6 @@ export default {
           for(let i = 0; i < this.user.selecciones.length; i++){
             lista = lista + ',' + this.user.selecciones[i]
           }
-          console.log(lista)
           this.nuevaTarea.listaHabilidades = lista
           try {
             await this.$axios
@@ -92,7 +91,6 @@ export default {
       this.atributos.forEach((atributo) => {
         this.habilidades.push({ name: atributo.nombre })
       })
-      console.log(this.habilidades)
     }
   },
   created: function () {
