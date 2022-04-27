@@ -27,12 +27,14 @@ public class ServiceTarea {
     @RequestMapping(value = "/nueva-tarea", method=RequestMethod.POST)
     public Tarea createHabilidad(@RequestBody Tarea tarea) 
     {
+        System.out.println(tarea.getFechaInicio());
         return repositorio.createTarea(tarea);
     }
 
     //Obtener lista de tareas (Metodo GET)
     @RequestMapping(value = "/tareas", method = RequestMethod.GET)
     public List<Tarea> getAllHabilidad(){
+
         return repositorio.getAll();
     }
 

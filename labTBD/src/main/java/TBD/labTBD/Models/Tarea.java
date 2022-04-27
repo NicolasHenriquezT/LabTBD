@@ -1,11 +1,15 @@
 package TBD.labTBD.Models;
 
+import java.sql.Date;
 import java.sql.Timestamp;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 
 public class Tarea {
     int id;
-    Timestamp fechaInicio;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    private Date fechainicio;
     String estado, nombre, descripcion;
     String ubicacion;
     String listaHabilidades;
@@ -18,11 +22,11 @@ public class Tarea {
         this.id = id;
     }
 
-    public Timestamp getFechaInicio() {
-        return fechaInicio;
+    public Date getFechaInicio() {
+        return fechainicio;
     }
-    public void setFechaInicio(Timestamp fechaInicio) {
-        this.fechaInicio = fechaInicio;
+    public void setFechaInicio(Date fechainicio) {
+        this.fechainicio = fechainicio;
     }
     public String getEstado() {
         return estado;
