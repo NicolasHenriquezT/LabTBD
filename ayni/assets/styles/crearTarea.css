@@ -1,3 +1,12 @@
+.title2
+{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  font-size: 32px;
+  color: black;
+}
+
 #nombre-tarea{
 
     padding:10px;
@@ -49,7 +58,7 @@ label{
 
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-ul.ul-cards {
+ul.ul-cards2 {
     margin-inline: auto;
     display: flex;
     flex-wrap: wrap;
@@ -58,7 +67,7 @@ ul.ul-cards {
     justify-content: center;
     margin: 40px;
 }
-ul.ul-cards>li{
+ul.ul-cards2>li{
     --bg-color: #F2F2F2;
     --text-color: #333;
     --padding: 1rem;
@@ -105,7 +114,7 @@ ul.ul-cards>li{
     gap: 0.75rem;
     position: relative;
 }
-ul.ul-cards>li>.icon{
+ul.ul-cards2>li>.icon2{
     width: var(--circle-size);
     margin-top: calc(var(--circle-size) / -2 - var(--padding));
     aspect-ratio: 1;
@@ -116,26 +125,26 @@ ul.ul-cards>li>.icon{
     place-items: center;
     box-shadow:var(--bs-rim), -0.1rem 0.1rem 0.25rem rgb(0 0 0 / .25);
 }
-ul.ul-cards>li>.icon>i{
+ul.ul-cards2>li>.icon2>i{
     font-size: calc(var(--circle-size) / 3);
     color: var(--accent-color);
 }
-ul.ul-cards>li>.title{
+ul.ul-cards2>li>.title2{
     margin-top: 0.5rem;
     color: var(--accent-color);
     font-weight: 700;
 }
-ul.ul-cards>li>.content{
+ul.ul-cards2>li>.content2{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 1rem;
     margin-bottom: 1rem;
     color: var(--text-color)
 }
-ul.ul-cards>li::before, ul>li::after{
+ul.ul-cards2>li::before, ul>li::after{
     content: "";
     position: absolute;
 }
-ul.ul-cards>li::before{
+ul.ul-cards2>li::before{
     top: calc(var(--circle-size) / -2 - var(--circle-expand));
     width: calc(var(--circle-size) * 1 + var(--circle-expand) * 2);
     height: calc(100% + var(--circle-size) / 2 + var(--padding) + var(--flap-offset)) ;
@@ -153,7 +162,7 @@ ul.ul-cards>li::before{
     );
     z-index: -1;
 }
-ul.ul-cards>li::after{
+ul.ul-cards2>li::after{
     width: calc(var(--circle-size) * 1 + var(--circle-expand) * 2 - var(--flap-offset) * 2);
     height: var(--flap-height);
     bottom: calc(var(--flap-offset) * -1);
@@ -170,7 +179,7 @@ ul.ul-cards>li::after{
     box-sizing: border-box;
 }
 
-.buttonCrearTarea {
+.buttonCrearTarea2 {
     background: #5E5DF0;
     border-radius: 999px;
     box-shadow: #5E5DF0 0 10px 20px -10px;
@@ -192,3 +201,5 @@ ul.ul-cards>li::after{
     border: 0;
     margin-top: 30px;
   }
+
+  

@@ -1,14 +1,14 @@
 <template>
     <div>
-      <ul class="ul-cards">
+      <ul class="ul-cards2">
         <li style="--accent-color: #68AFFF">
-            <div class="icon">
-                <i class="fa-solid fa-user" />
+            <div class="icon2">
+                <i class="fa-solid fa-user2" />
             </div>
-            <div class="title">
+            <div class="title2">
                 Nueva Tarea
             </div>
-            <div class="content">
+            <div class="content2">
                 <label for="nombre-tarea">Nombre de la tarea</label>
                 <input id="nombre-tarea" v-model="nuevaTarea.nombre" type="text" ><br>
                 <label for="descripcion">Descripción</label>
@@ -18,11 +18,11 @@
                 <label for="ubicacionTarea">Ubicación</label>
                 <input id="ubicacionTarea" v-model="nuevaTarea.ubicacion" type="text"><br><br>
                 <p>Habilidades Requeridas</p><br>
-                <div class="form-group form-check" v-for="item in habilidades" v-bind:key="item.id">
-                    <label class="form-check-label" :for="item.id">{{item.name}}</label>
+                <div class="form-group form-check2" v-for="item in habilidades" v-bind:key="item.id">
+                    <label class="form-check-label2" :for="item.id">{{item.name}}</label>
                     <input type="checkbox"  v-model="user.selecciones" :id="item.name" :value="item.name"><br>
                 </div>
-                <button type="button" class="buttonCrearTarea" @click="CrearTarea">
+                <button type="button" class="buttonCrearTarea2" @click="CrearTarea">
                     Crear Tarea
                 </button>
             </div>
