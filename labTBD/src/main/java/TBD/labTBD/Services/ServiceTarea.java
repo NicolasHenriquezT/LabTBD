@@ -27,7 +27,7 @@ public class ServiceTarea {
     @RequestMapping(value = "/nueva-tarea", method=RequestMethod.POST)
     public Tarea createHabilidad(@RequestBody Tarea tarea) 
     {
-        System.out.println(tarea.getFechaInicio());
+        
         return repositorio.createTarea(tarea);
     }
 
