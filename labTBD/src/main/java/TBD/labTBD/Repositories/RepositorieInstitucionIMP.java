@@ -34,10 +34,10 @@ public class RepositorieInstitucionIMP implements RepositorieInstitucion
     public void update(Institucion institucion) {
         String sql = "UPDATE institucion SET nombre="+"'"+
                     institucion.getNombre()+"'"+
-                    ", coordinadores="+"'"+
-                    institucion.getCoordinadores()+"'"+
-                    ", claves_Coordinadores="+"'"+
-                    institucion.getClavesCoordinadores()+"'"+
+                    ", coordinador="+"'"+
+                    institucion.getCoordinador()+"'"+
+                    ", clave_Coordinador="+"'"+
+                    institucion.getClaveCoordinador()+"'"+
                     "WHERE id = "+
                     institucion.getId();
         System.out.println(sql);
@@ -67,13 +67,13 @@ public class RepositorieInstitucionIMP implements RepositorieInstitucion
     //La verificacion si existe una institucion para ser creada se realiza en el front
     @Override
     public Institucion createInstitucion(Institucion institucion) {
-        String sql = "INSERT INTO institucion (nombre, coordinadores, claves_Coordinadores) VALUES(:nombre, :coordinadores, :claves_Coordinadores)";
+        String sql = "INSERT INTO institucion (nombre, coordinador, clave_Coordinador) VALUES(:nombre, :coordinador, :clave_Coordinador)";
     
         try(Connection con = sql2o.open()) {
             int id = (int) con.createQuery(sql, true)
             .addParameter("nombre", institucion.getNombre())
-            .addParameter("coordinadores", institucion.getCoordinadores())
-            .addParameter("claves_Coordinadores", institucion.getClavesCoordinadores())
+            .addParameter("coordinador", institucion.getCoordinador())
+            .addParameter("clave_Coordinador", institucion.getClaveCoordinador())
             .executeUpdate().getKey();
 
             institucion.setId(id);

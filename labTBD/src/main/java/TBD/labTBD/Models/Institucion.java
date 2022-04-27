@@ -1,11 +1,10 @@
 package TBD.labTBD.Models;
-import java.util.List;
 
 public class Institucion {
     private int id;
     private String nombre;
-    private String coordinadores;
-    private String claves_Coordinadores;
+    private String coordinador;
+    private String clave_Coordinador;
 
     //Getters
     public int getId() {
@@ -16,12 +15,12 @@ public class Institucion {
         return nombre;
     }
 
-    public String getCoordinadores() {
-        return coordinadores;
+    public String getCoordinador() {
+        return coordinador;
     }
 
-    public String getClavesCoordinadores() {
-        return this.claves_Coordinadores;
+    public String getClaveCoordinador() {
+        return this.clave_Coordinador;
     }
 
     //Setters
@@ -33,12 +32,12 @@ public class Institucion {
         this.nombre = nombre;
     }
 
-    public void setCoordinadores(String coordinadores) {
-        this.coordinadores = coordinadores;
+    public void setCoordinador(String coordinador) {
+        this.coordinador = coordinador;
     }
 
-    public void setClavesCoordinadores(String claves_Coordinadores) {
-        this.claves_Coordinadores = claves_Coordinadores;
+    public void setClaveCoordinador(String clave_Coordinador) {
+        this.clave_Coordinador = clave_Coordinador;
     }
 
 }
