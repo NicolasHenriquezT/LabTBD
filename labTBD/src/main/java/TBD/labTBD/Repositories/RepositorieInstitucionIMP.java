@@ -67,10 +67,11 @@ public class RepositorieInstitucionIMP implements RepositorieInstitucion
     //La verificacion si existe una institucion para ser creada se realiza en el front
     @Override
     public Institucion createInstitucion(Institucion institucion) {
-        String sql = "INSERT INTO institucion (nombre, coordinador, clave_Coordinador) VALUES(:nombre, :coordinador, :clave_Coordinador)";
+        String sql = "INSERT INTO institucion (id, nombre, coordinador, clave_Coordinador) VALUES(:id, :nombre, :coordinador, :clave_Coordinador)";
     
         try(Connection con = sql2o.open()) {
             int id = (int) con.createQuery(sql, true)
+            .addParameter("id", institucion.getId())
             .addParameter("nombre", institucion.getNombre())
             .addParameter("coordinador", institucion.getCoordinador())
             .addParameter("clave_Coordinador", institucion.getClaveCoordinador())

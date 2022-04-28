@@ -112,7 +112,6 @@ export default {
       let tmp = 0
       //  Se verifica si es un voluntario
       //  Traemos todos los voluntarios
-      this.getVoluntarios()
       if (this.voluntarios.length !== 0) {
         this.voluntarios.forEach((voluntario) => {
           //  Si los datos ingresados corresponden a los registrados en la base de datos se le envia a la vista de voluntarios
@@ -123,25 +122,19 @@ export default {
           }
         })
         //  Si no se le reconoce como voluntario es porque quizas es un coordinador
-        this.getInstituciones()
         if (this.instituciones) {
           this.instituciones.forEach((institucion) => {
-            let coordinadores = institucion.coordinadores
-            coordinadores = coordinadores.split(',')
-            console.log(coordinadores)
-            let contraseñas = institucion.clavesCoordinadores
-            contraseñas = contraseñas.split(',')
-            for (let i = 0; i < coordinadores.length; i++) {
-              if (coordinadores[i] === this.inicio_sesion.name && contraseñas[i] === this.inicio_sesion.password) {
-                alert('Sesion iniciada como coordinador')
-                tmp = 1
-                break
-              }
+            if (this.inicio_sesion.name === institucion.coordinador && this.inicio_sesion.password === institucion.claveCoordinador) {
+              tmp = 1
+              alert('Sesion iniciada como coordinador')
             }
           })
         }
-        if (tmp === 0) {
-          alert('Credenciales invalidas')
+        if (this.instituciones.length != 0)
+        {
+          if (tmp === 0) {
+            alert('Credenciales invalidas')
+          }
         }
       }
     },
@@ -217,6 +210,11 @@ export default {
       console.log(this.registroIns)
       
     }
+  },
+  created: function ()
+  {
+    this.getVoluntarios()
+    this.getInstituciones()
   }
 }
 </script>
