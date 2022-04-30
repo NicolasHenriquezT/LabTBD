@@ -1,7 +1,7 @@
 <template>
     <div>
       <ul class="ul-cards">
-        <li style="--accent-color: #68AFFF; height: calc(100vh - 12rem);">
+        <li style="--accent-color: #68AFFF; height: calc(100vh - 10rem);">
             <div class="icon">
                 <i class="fa-solid fa-user" />
             </div>
@@ -23,8 +23,9 @@
                     <div class="form-group form-check" v-for="item in habilidades" v-bind:key="item.id">
                       <label class="form-check-label" :for="item.name">{{item.name}}</label>
                       <input type="checkbox"  v-model="user.selecciones" :id="item.name" :value="item.name"><br>
+                    </div>
                   </div>
-                </div></div>
+                </div>
                 
             </div>
             <button type="button" class="button-34" @click="CrearTarea">
@@ -105,7 +106,7 @@ export default {
 
 <style>
   .group-habilidades {
-    max-height: 100px;
+    max-height: 70px;
     overflow-y: scroll;
     border: 1px solid black;
     border-radius: 2px;
