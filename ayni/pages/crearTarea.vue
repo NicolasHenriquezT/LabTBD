@@ -1,31 +1,35 @@
 <template>
     <div>
-      <ul class="ul-cards2">
-        <li style="--accent-color: #68AFFF">
-            <div class="icon2">
-                <i class="fa-solid fa-user2" />
+      <ul class="ul-cards">
+        <li style="--accent-color: #68AFFF; height: calc(100vh - 12rem);">
+            <div class="icon">
+                <i class="fa-solid fa-user" />
             </div>
-            <div class="title2">
+            <div class="title">
                 Nueva Tarea
             </div>
-            <div class="content2">
+            <div class="content" style="margin-bottom: 3rem;">
                 <label for="nombre-tarea">Nombre de la tarea</label>
-                <input id="nombre-tarea" v-model="nuevaTarea.nombre" type="text" ><br>
+                <input id="nombre-tarea" v-model="nuevaTarea.nombre" type="text">
                 <label for="descripcion">Descripción</label>
-                <input id="descripcion" v-model="nuevaTarea.descripcion" type="text"><br>
+                <input id="descripcion" v-model="nuevaTarea.descripcion" type="text">
                 <label for="fechaTarea">Fecha de inicio</label>
-                <input id="fechaTarea" v-model="nuevaTarea.fechainicio" type="date"><br>
+                <input id="fechaTarea" v-model="nuevaTarea.fechainicio" type="date">
                 <label for="ubicacionTarea">Ubicación</label>
-                <input id="ubicacionTarea" v-model="nuevaTarea.ubicacion" type="text"><br><br>
-                <p>Habilidades Requeridas</p><br>
-                <div class="form-group form-check2" v-for="item in habilidades" v-bind:key="item.id">
-                    <label class="form-check-label2" :for="item.id">{{item.name}}</label>
-                    <input type="checkbox"  v-model="user.selecciones" :id="item.name" :value="item.name"><br>
-                </div>
-                <button type="button" class="buttonCrearTarea2" @click="CrearTarea">
-                    Crear Tarea
-                </button>
+                <input id="ubicacionTarea" v-model="nuevaTarea.ubicacion" type="text">
+                <div style="grid-column: 1/-1">
+                  <p style="margin-bottom: 1rem;">Habilidades Requeridas</p>
+                  <div class="group-habilidades">
+                    <div class="form-group form-check" v-for="item in habilidades" v-bind:key="item.id">
+                      <label class="form-check-label" :for="item.name">{{item.name}}</label>
+                      <input type="checkbox"  v-model="user.selecciones" :id="item.name" :value="item.name"><br>
+                  </div>
+                </div></div>
+                
             </div>
+            <button type="button" class="button-34" @click="CrearTarea">
+              Crear Tarea
+            </button>
         </li>
       </ul>
     </div>
@@ -100,5 +104,15 @@ export default {
 </script>
 
 <style>
-  @import '@/assets/styles/crearTarea.css';
+  .group-habilidades {
+    max-height: 100px;
+    overflow-y: scroll;
+    border: 1px solid black;
+    border-radius: 2px;
+    width: 90%;
+    padding: 5px;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(3, 1fr);
+  }
 </style>
