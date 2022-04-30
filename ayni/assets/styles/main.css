@@ -201,7 +201,7 @@ h1 {
   gap: 2rem 1rem;
 }
 
-.content input {
+.content > input {
   width: 90%;
 }
 
