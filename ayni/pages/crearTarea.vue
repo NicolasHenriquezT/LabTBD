@@ -99,7 +99,7 @@ export default {
         return error
       }
       this.atributos.forEach((atributo) => {
-        this.habilidades.push({ name: atributo.nombre })
+        this.habilidades.push({ id: atributo.id, name: atributo.nombre })
       })
     }
   },
