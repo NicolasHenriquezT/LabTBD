@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="main"> 
       <ul class="ul-cards">
         <li style="--accent-color: #68AFFF; height: calc(100vh - 10rem);">
             <div class="icon">
@@ -110,6 +110,8 @@ export default {
 </script>
 
 <style>
+  @import "@/assets/styles/crearTarea.css";
+
   .group-habilidades {
     max-height: 70px;
     overflow-y: scroll;
