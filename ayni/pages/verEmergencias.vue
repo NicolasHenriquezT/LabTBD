@@ -15,14 +15,14 @@
         <div class="title-1"> Emergencias</div>
         <div class="table-container">
             <table class="main-table">
-                    <tr v-for="(e, index) in emergencias" :key="index">
-                        <td>{{ e.id }}</td>
-                        <td>{{ e.name }}</td>
-                        <td>{{ e.ubicacion }}</td>
+                    <tr v-for="(row, index) in emergencias" :key="index">
+                        <td>{{ emergencias[index].id }}</td>
+                        <td>{{ emergencias[index].name }}</td>
+                        <td>{{ emergencias[index].ubicacion }}</td>
                         <td>
                             <nuxt-link :to="{ name: 'verEmergencia', 
                                               path: '/verEmergencia',
-                                              params: { emergencia: e.id }}">
+                                              params: { emergencia: emergencias[index].id }}">
                                 <img width="25" height="25" :src="joinLogo" />
                             </nuxt-link>
                         </td>                    
@@ -61,8 +61,19 @@ export default ({
       
       let username = this.$route.params.username;
       this.userLogeado = username;
-      this.getEmergencias();
+      
   },
+  mounted: async function(){
+           try {
+            console.log(this.emergencias)
+            let response = await this.$axios.get('http://localhost:8080/emergencias');
+            this.emergencias = response.data;
+            console.log(this.emergencias)
+            console.log(response) 
+            } catch (error) {
+                console.log('error', error);
+            } 
+        },
 })
 </script>
 

@@ -2,7 +2,7 @@ package TBD.labTBD.Services;
 
 import TBD.labTBD.Models.*;
 import java.util.*;
-import TBD.labTBD.Repositories.RepositorieHabilidad;
+import TBD.labTBD.Repositories.RepositorieEmergencia;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import TBD.labTBD.Repositories.RepositorieEmergencia;
-
+@CrossOrigin(origins = "*", allowedHeaders = "*")
+@RestController
 public class ServiceEmergencia {
     private final RepositorieEmergencia repositorieEmergencia;
 
@@ -22,12 +22,12 @@ public class ServiceEmergencia {
 
     // Metodo leer
     @RequestMapping(value = "/emergencias", method = RequestMethod.GET)
-    public List<TBD.labTBD.Models.Emergencia> getAllEmergencia() {
+    public List<Emergencia> getAllEmergencia() {
         return repositorieEmergencia.getAll();
     }
 
     // Metodo actualizar
-    @RequestMapping(value = "/emergencia/actualizar", method = RequestMethod.PUT)
+    @RequestMapping(value = "/emergencias/actualizar", method = RequestMethod.PUT)
     public void actualizarEmergencia(@RequestBody Emergencia emergencia) {
         repositorieEmergencia.update(emergencia);
     }
@@ -39,7 +39,7 @@ public class ServiceEmergencia {
     }
 
     // Metodo eliminar
-    @DeleteMapping(value = "/emergencia/eliminar/{id}")
+    @DeleteMapping(value = "/emergencias/eliminar/{id}")
     public void eliminar(@PathVariable(value = "id") int id) {
         repositorieEmergencia.delete(id);
     }
