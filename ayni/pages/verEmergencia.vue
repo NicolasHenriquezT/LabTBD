@@ -20,14 +20,15 @@
                         <th>Fecha</th>
                         <th>Tareas</th>
                         </tr>
-                        <tr id="row-1" v-for="(row,index) in emergencia" v-bind:key="index">
-                        <td>{{emergencia[index].nombre}}</td>
-                        <td>{{emergencia[index].descripcion}}</td>
-                        <td>{{emergencia[index].ubicacion}}</td>
+                        <tr id="row-1" >
+                        <td>{{this.emergencia.nombre}}</td>
+                        <td>{{this.emergencia.descripcion}}</td>
+                        <td>{{this.emergencia.ubicacion}}</td>
+                        <td></td>
                         <td>
                             <nuxt-link :to="{ name: 'mostrarTarea', 
                                               path: '/mostrarTarea',
-                                              params: { Tarea: emergencia[index].id}}">
+                                              params: { Tarea: this.emergencia.id}}">
                                 <img width="25" height="25" :src="editLogo" />
                             </nuxt-link>
                         </td>
@@ -46,7 +47,7 @@ export default ({
     data() {
         return{
             userLogeado: {},
-            emergencia: [],
+            emergencia: {},
             editLogo
         }
     },
