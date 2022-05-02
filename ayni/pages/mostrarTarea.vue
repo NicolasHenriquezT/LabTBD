@@ -43,16 +43,18 @@ import axios from "axios";
 export default {
   data () {
     return {
-        tarea: [{nombre:"Tarea 1",descripcion:"Desc 1",ubicacion:"ubi",fechainicio:"sdaklsdj",estado:"si"}]
+        tareas: [],
+        tarea: [],
+        emergencia: this.$route.params.tarea
     }
   },
   methods: {
     volver() {
-      this.$router.push({ path: '/crearTarea'})
+      this.$router.push({ path: '/verEmergencias'})
     },
     editar()
     {
-      var estado = prompt('Ingrese nuevo estado')
+      var estado = prompt('Ingrese nuevo estado: '+this.emergencia)
       var table = document.getElementById('table')
       this.tarea[0].estado = estado
 
@@ -60,6 +62,9 @@ export default {
       
       //Realizar UPDATE en el backend
       this.ActualizarTarea()
+
+      //Volver a la pagina de emergencias
+      
     },
     async ActualizarTarea() {
       try {
@@ -67,11 +72,30 @@ export default {
       } catch (error) {
         console.log("error", error);
       }
+      alert("Datos actualizados correctamente")
     }
-  }
+  },
+  mounted: async function(){
+    try {
+      let response = await this.$axios.get('http://localhost:8080/tareas');
+      this.tareas = response.data;
+      } catch (error) {
+        console.log('error', error);
+    }
+
+    for (let i = 0;i<this.tareas.length;i++)
+    {
+      if (this.emergencia === parseInt(this.tareas[i].idEmergencia))
+      {
+        this.tareas[i].estado = this.tareas[i].estado.split(' - ')[0]
+        this.tarea.push(this.tareas[i])
+      }
+    }
+  } 
 };
 </script>
 
-<style scoped>
+<style                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    >
 @import "@/assets/styles/verTarea.css";
 </style>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         

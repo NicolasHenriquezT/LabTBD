@@ -66,10 +66,12 @@ public class RepositorieTareaIMP implements RepositorieTarea{
     @Override
     public Tarea createTarea(Tarea tarea) {
         
-        String sql = "INSERT INTO tarea (nombre, descripcion, estado, fechainicio, ubicacion, listaHabilidades) VALUES(:nombre, :descripcion, :estado, :fechainicio, :ubicacion, :listaHabilidades)";
+        String sql = "INSERT INTO tarea (id, emergencia, nombre, descripcion, estado, fechainicio, ubicacion, listaHabilidades) VALUES(:id, :emergencia, :nombre, :descripcion, :estado, :fechainicio, :ubicacion, :listaHabilidades)";
         
         try (Connection con = sql2o.open()) {
             int id = (int) con.createQuery(sql,true)
+            .addParameter("id", tarea.getId())
+            .addParameter("emergencia", tarea.getIdEmergencia())
             .addParameter("nombre", tarea.getNombre())
             .addParameter("descripcion", tarea.getDescripcion())
             .addParameter("estado", tarea.getEstado())
@@ -79,13 +81,14 @@ public class RepositorieTareaIMP implements RepositorieTarea{
             .executeUpdate().getKey();
 
             tarea.setId(id);
-
             return tarea;
         
         }
         catch (Exception e) {
             System.out.println(e.getCause() + e.getLocalizedMessage() + "\n");
+            
         }
+        
         return null;
     }
 

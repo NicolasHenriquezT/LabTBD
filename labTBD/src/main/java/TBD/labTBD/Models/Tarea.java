@@ -7,12 +7,13 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 
 public class Tarea {
-    int id;
+    private int id;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private Date fechainicio;
-    String estado, nombre, descripcion;
-    String ubicacion;
-    String listaHabilidades;
+    private String estado, nombre, descripcion;
+    private String ubicacion;
+    private String listaHabilidades;
+    private String emergencia;
 
     public int getId(){
         return id;
@@ -20,6 +21,16 @@ public class Tarea {
 
     public void setId(int id){
         this.id = id;
+    }
+
+    public String getIdEmergencia()
+    {
+        return emergencia;
+    }
+
+    public void setIdEmergencia(String emergencia)
+    {
+        this.emergencia = emergencia;
     }
 
     public Date getFechaInicio() {

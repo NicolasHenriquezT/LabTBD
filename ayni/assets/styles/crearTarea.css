@@ -194,7 +194,12 @@
     gap: 2rem 1rem;
   }
   
-  .content > input {
+  .content > input{
+    width: 90%;
+  }
+
+  .content > select 
+  {
     width: 90%;
   }
   

@@ -9,6 +9,13 @@
                 Nueva Tarea
             </div>
             <div class="content" style="margin-bottom: 3rem;">
+              <label for="emergencia">Seleccione emergencia</label>
+              <select id="emergencia" name="select">
+                <option v-for="(item , index) in emergencias" v-bind:key="index">
+                    {{item.id}} - {{item.nombre}}
+                </option>
+              </select>
+
               <label for="nombre-tarea">Nombre de la tarea</label>
               <input id="nombre-tarea" v-model="nuevaTarea.nombre" type="text">
 
@@ -50,7 +57,8 @@ export default {
       habilidades: [],
       user: {
         selecciones: []
-      }
+      },
+      emergencias: []
     }
   },
   methods: {
@@ -58,6 +66,13 @@ export default {
       try {
         let response = await this.$axios.get("http://localhost:8080/tareas");
         this.temp = response.data;
+        
+        let id = 0
+        for (let i=0;i<this.temp.length;i++)
+        {
+          id += 1
+        }
+        this.nuevaTarea.id = id
         if(this.nuevaTarea.nombre == null ){
             alert("Debe ingresar un nombre para la tarea");
         }
@@ -72,16 +87,24 @@ export default {
         }
         else{
           let lista = ''
-          this.nuevaTarea.estado = 'Recien Creada'
+          
           for(let i = 0; i < this.user.selecciones.length; i++){
             lista = lista + ',' + this.user.selecciones[i]
           }
           this.nuevaTarea.listaHabilidades = lista
           try {
+            
+            var e = document.getElementById("emergencia");
+            var em = e.options[e.selectedIndex].value
+            this.nuevaTarea.idEmergencia = em[0]
+            this.nuevaTarea.estado = 'Recien Creada - '+this.nuevaTarea.idEmergencia
             await this.$axios
               .post("http://localhost:8080/nueva-tarea", this.nuevaTarea)
               .then((res) => res.data)
               .catch((res) => res);
+              
+              alert("Se ha creado correctamente la tarea")
+              this.$router.push({ name: 'verEmergencias', path: '/verEmergencias'})
           } catch (error) {
             console.log("error", error);
           }
@@ -101,10 +124,22 @@ export default {
       this.atributos.forEach((atributo) => {
         this.habilidades.push({ id: atributo.id, name: atributo.nombre })
       })
+    },
+    async getEmergencias(){
+      try {
+        console.log(this.emergencias)
+        let response = await this.$axios.get('http://localhost:8080/emergencias');
+        this.emergencias = response.data;
+        console.log(this.emergencias)
+        console.log(response) 
+        } catch (error) {
+        console.log('error', error);
+        } 
     }
   },
   created: function () {
     this.getHabilidades()
+    this.getEmergencias()
   }
 }
 </script>

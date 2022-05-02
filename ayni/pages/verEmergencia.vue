@@ -28,7 +28,7 @@
                         <td>
                             <nuxt-link :to="{ name: 'mostrarTarea', 
                                               path: '/mostrarTarea',
-                                              params: { Tarea: this.emergencia.id}}">
+                                              params: { tarea: this.emergencia.id}}">
                                 <img width="25" height="25" :src="editLogo" />
                             </nuxt-link>
                         </td>
@@ -48,22 +48,19 @@ export default ({
         return{
             userLogeado: {},
             emergencia: {},
-            editLogo
+            editLogo,
+            id_emergencia: this.$route.params.emergencia
         }
     },
     created: function() {
       
       let username = this.$route.params.username;
       this.userLogeado = username; 
-      
-      
-      
   },
   mounted: async function(){
-      let id_emergencia = this.$route.params.emergencia;
      try {
         console.log(this.emergencia)
-        let response = await this.$axios.get('http://localhost:8080/emergencias/' + id_emergencia);
+        let response = await this.$axios.get('http://localhost:8080/emergencia/' + this.id_emergencia);
         this.emergencia = response.data;
         console.log(this.emergencia)
         console.log(response) 

@@ -17,7 +17,7 @@
             <table class="main-table">
                     <tr v-for="(row, index) in emergencias" :key="index">
                         <td>{{ emergencias[index].id }}</td>
-                        <td>{{ emergencias[index].name }}</td>
+                        <td>{{ emergencias[index].nombre }}</td>
                         <td>{{ emergencias[index].ubicacion }}</td>
                         <td>
                             <nuxt-link :to="{ name: 'verEmergencia', 
@@ -29,6 +29,9 @@
                     </tr>
             </table>
         </div>
+
+        <button type="button" class="button-34" @click="crearTarea">Crear nueva tarea</button>
+
       </li>
     </ul>
   </div>
@@ -55,6 +58,10 @@ export default ({
                 console.log('error', error);
             } 
         },
+        crearTarea()
+        {
+          this.$router.push({ name: 'crearTarea', path: '/crearTarea'})
+        }
     },
     //Función que se ejecuta al cargar el componente
   created: async function() {
