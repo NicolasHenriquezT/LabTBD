@@ -1,17 +1,17 @@
 package TBD.labTBD.Models;
 
-import java.sql.Timestamp;
-import java.util.List;
+import java.sql.Date;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class Emergencia {
     private int id;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private String nombre;
     private String descripcion;
     private int id_coordinador;
     private String ubicacion;
-    private Timestamp fecha;
-    private List<Tarea> listaTareas;
-
+    private Date fecha;
+    
     public int getId() {
         return id;
     }
@@ -24,19 +24,11 @@ public class Emergencia {
         this.id_coordinador = id_coordinador;
     }
 
-    public List<Tarea> getListaTareas() {
-        return listaTareas;
-    }
-
-    public void setListaTareas(List<Tarea> listaTareas) {
-        this.listaTareas = listaTareas;
-    }
-
-    public Timestamp getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(Timestamp fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 

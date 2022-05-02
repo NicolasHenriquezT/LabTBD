@@ -1,0 +1,78 @@
+CREATE TABLE tarea
+(id int primary key,
+nombre varchar(50),
+descripcion varchar(500),
+ubicacion varchar(50),
+listahabilidades varchar(500),
+estado varchar(50),
+fechainicio date,
+emergencia varchar(5))
+
+INSERT INTO tarea
+(id, nombre, descripcion, ubicacion, listaHabilidades, estado, fechainicio, emergencia)
+VALUES
+(1, 'Tarea 1', 'Descripcion 1', 'Ubicacion 1', 'habilidad 1', 'Finalizada', '2020-12-17', '1')
+
+
+
+
+CREATE TABLE institucion
+(id int primary key,
+nombre varchar(50),
+coordinador varchar(50),
+clave_coordinador varchar(50))
+
+INSERT INTO institucion
+(id, nombre, coordinador, clave_coordinador)
+VALUES
+(1, 'Nombre Institucion 1', 'Coordinador 1', 'ClaveCoordinador1')
+
+
+
+
+CREATE TABLE habilidad 
+(id int primary key, 
+nombre varchar(50), 
+ descripcion varchar(300))
+
+INSERT INTO habilidad
+(id, nombre, descripcion)
+VALUES 
+(1, 'Pala', 'Se usa para cavar en la tierra'),
+(2, 'Casco', 'Sistema de proteccion para la cabeza del individuo'),
+(3, 'Cuerda', 'Conjunto de hilos entrelazados que forman un solo cuerpo largo y flexible que sirve para atar, suspender pesos')
+
+
+
+
+CREATE TABLE emergencia
+(id int primary key, 
+nombre varchar(50),  
+descripcion varchar(50), 
+id_coordinador int, 
+ubicacion varchar(50), 
+fecha date)
+
+INSERT INTO emergencia
+(id, nombre, descripcion, id_coordinador, ubicacion, fecha)
+VALUES
+(1, 'Emergencia 1', 'Descripcion 1', 1, 'Ubicacion emergencia 1', '2020-07-15'),
+(2, 'Emergencia 2', 'Descripcion 2', 2, 'Ubicacion emergencia 2', '2020-08-09')
+
+
+
+CREATE TABLE voluntario
+(id int primary key,
+nombre varchar(50),
+apellido varchar(50),
+correo varchar(50),
+contrasena varchar(50),
+direccion varchar(50),
+rut varchar(50),
+estado varchar(50))
+
+INSERT INTO voluntario
+(id, nombre, apellido, correo, contrasena, direccion, rut, estado)
+VALUES
+(1, 'Voluntario 1', 'Apellido 1', 'correo 1', 'contra1', 'direccion 1', '123', 'Saludable')
+
