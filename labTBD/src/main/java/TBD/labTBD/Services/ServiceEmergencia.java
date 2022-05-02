@@ -21,7 +21,7 @@ public class ServiceEmergencia {
     }
 
     // Metodo leer
-    @RequestMapping(value = "/emergencia", method = RequestMethod.GET)
+    @RequestMapping(value = "/emergencias", method = RequestMethod.GET)
     public List<TBD.labTBD.Models.Emergencia> getAllEmergencia() {
         return repositorieEmergencia.getAll();
     }

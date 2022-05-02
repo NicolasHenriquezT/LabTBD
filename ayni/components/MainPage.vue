@@ -127,6 +127,7 @@ export default {
             if (this.inicio_sesion.name === institucion.coordinador && this.inicio_sesion.password === institucion.claveCoordinador) {
               tmp = 1
               alert('Sesion iniciada como coordinador')
+              this.$router.push({ name: 'verEmergencias', path: '/verEmergencias', params: { username: this.inicio_sesion.name }})
             }
           })
         }
