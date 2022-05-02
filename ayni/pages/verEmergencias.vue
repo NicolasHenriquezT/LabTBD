@@ -13,31 +13,34 @@
           <i class="fa-solid fa-user" />
         </div>
         <div class="title-1"> Emergencias</div>
-        <table id="table" class="flat-table">
-          <tbody>
-            <tr id="row-1" v-for="(e,index) in emergencias" v-bind:key="index">
-              <nuxt-link :to="{ name: 'verEmergencia',
-                                 path: '/verEmergencia',
-                                params: { emergencia: e.id}}">
-                    <td>{{ e.id}}</td>
-                    <td>{{ e.nombre}}</td>
-                    <td>{{ e.ubicacion}}</td>
-                    <td>{{ e.fecha}}</td>
-              </nuxt-link>
-            </tr>
-          </tbody>
-        </table>
+        <div class="table-container">
+            <table class="main-table">
+                    <tr v-for="(e, index) in emergencias" :key="index">
+                        <td>{{ e.id }}</td>
+                        <td>{{ e.name }}</td>
+                        <td>{{ e.ubicacion }}</td>
+                        <td>
+                            <nuxt-link :to="{ name: 'verEmergencia', 
+                                              path: '/verEmergencia',
+                                              params: { emergencia: e.id }}">
+                                <img width="25" height="25" :src="joinLogo" />
+                            </nuxt-link>
+                        </td>                    
+                    </tr>
+            </table>
+        </div>
       </li>
     </ul>
   </div>
 </template>
 <script>
-
+import joinLogo from '../static/arrow-basic-ui-svgrepo-com.svg'
 export default ({
     data(){
         return {
             userLogeado: {},
-            emergencias: {},
+            emergencias: [],
+            joinLogo,
         }
     },
     methods: {
@@ -55,9 +58,10 @@ export default ({
     },
     //Función que se ejecuta al cargar el componente
   created: async function() {
-      this.getEmergencias();
+      
       let username = this.$route.params.username;
       this.userLogeado = username;
+      this.getEmergencias();
   },
 })
 </script>
