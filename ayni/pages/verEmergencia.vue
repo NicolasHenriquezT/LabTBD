@@ -24,7 +24,7 @@
                         <td>{{this.emergencia.nombre}}</td>
                         <td>{{this.emergencia.descripcion}}</td>
                         <td>{{this.emergencia.ubicacion}}</td>
-                        <td></td>
+                        <td>{{this.emergencia.fecha}}</td>
                         <td>
                             <nuxt-link :to="{ name: 'mostrarTarea', 
                                               path: '/mostrarTarea',

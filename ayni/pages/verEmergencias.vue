@@ -22,7 +22,7 @@
                         <td>
                             <nuxt-link :to="{ name: 'verEmergencia', 
                                               path: '/verEmergencia',
-                                              params: { emergencia: emergencias[index].id }}">
+                                              params: { username: userLogeado, emergencia: emergencias[index].id }}">
                                 <img width="25" height="25" :src="joinLogo" />
                             </nuxt-link>
                         </td>                    

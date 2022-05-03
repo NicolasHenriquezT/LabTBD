@@ -120,22 +120,22 @@ export default {
             tmp = 1
             alert('Sesion iniciada como voluntario')
           }
-        })
-        //  Si no se le reconoce como voluntario es porque quizas es un coordinador
-        if (this.instituciones) {
-          this.instituciones.forEach((institucion) => {
-            if (this.inicio_sesion.name === institucion.coordinador && this.inicio_sesion.password === institucion.claveCoordinador) {
-              tmp = 1
-              alert('Sesion iniciada como coordinador')
-              this.$router.push({ name: 'verEmergencias', path: '/verEmergencias', params: { username: this.inicio_sesion.name }})
-            }
-          })
-        }
-        if (this.instituciones.length != 0)
-        {
-          if (tmp === 0) {
-            alert('Credenciales invalidas')
+        })        
+      }
+      //  Si no se le reconoce como voluntario es porque quizas es un coordinador
+      if (this.instituciones) {
+        this.instituciones.forEach((institucion) => {
+          if (this.inicio_sesion.name === institucion.coordinador && this.inicio_sesion.password === institucion.claveCoordinador) {
+            tmp = 1
+            alert('Sesion iniciada como coordinador')
+            this.$router.push({ name: 'verEmergencias', path: '/verEmergencias', params: { username: this.inicio_sesion.name }})
           }
+        })
+      }
+      if (this.instituciones.length != 0)
+      {
+        if (tmp === 0) {
+          alert('Credenciales invalidas')
         }
       }
     },
